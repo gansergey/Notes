@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edText_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_edit_text_note"
+            android:hint="@string/hint_text_name_note"
+            android:padding="@dimen/padding_edit_text_note"
+            android:textSize="@dimen/name_text_size" />
+
+        <EditText
+            android:id="@+id/edText_dateCreation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_edit_text_note"
+            android:enabled="false"
+            android:padding="@dimen/padding_edit_text_note"
+            android:textColor="@color/text_edit_note"
+            android:textSize="@dimen/name_text_size" />
+
+        <EditText
+            android:id="@+id/edText_noteDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_edit_text_note"
+            android:gravity="top"
+            android:hint="@string/hint_text_description_note"
+            android:padding="@dimen/padding_edit_text_note"
+            android:textColor="@color/text_edit_note"
+            android:textSize="@dimen/name_text_size" />
+
+        <TextView
+            android:id="@+id/text_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_edit_text"
+            android:textColor="@color/color_text_warning"
+            tools:text="Предупреждение" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_save_note"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/button_margin"
+        android:backgroundTint="@color/button_color"
+        android:text="@string/button_text_note_creation"
+        android:textColor="@color/text" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
