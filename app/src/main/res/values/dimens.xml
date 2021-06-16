@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="note_card_view_radius">8dp</dimen>
+    <dimen name="note_card_view_margin">12dp</dimen>
+    <dimen name="note_card_view_padding">6dp</dimen>
+    <dimen name="name_text_size">18sp</dimen>
+    <dimen name="description_text_size">12sp</dimen>
+    <dimen name="text_size_date_creation">14sp</dimen>
+    <dimen name="margin_edit_text_note">12dp</dimen>
+    <dimen name="padding_edit_text_note">12dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_margin">16dp</dimen>
+    <dimen name="margin_text_description">8dp</dimen>
+    <dimen name="margin_edit_text">12dp</dimen>
+    <dimen name="padding_text_about_app">16dp</dimen>
+</resources>
