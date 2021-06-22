@@ -1,5 +1,6 @@
 package net.gan.notes;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements ListNotesControll
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     private void initBottomBar() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
@@ -69,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements ListNotesControll
                     }
                     return false;
                 });
-
     }
 
     @Override
@@ -83,11 +84,19 @@ public class MainActivity extends AppCompatActivity implements ListNotesControll
     }
 
     @Override
+    public void deleteNote(NoteEntity noteEntity) {
+        ListNotesFragment listNotesFragment = (ListNotesFragment) getSupportFragmentManager().findFragmentByTag(LIST_NOTES_FRAGMENT_TAG);
+        if (listNotesFragment != null) {
+            listNotesFragment.addNoteToList(noteEntity, true);
+        }
+    }
+
+    @Override
     public void saveNote(NoteEntity noteEntity) {
         getSupportFragmentManager().popBackStack();//возвращаемся к фрагменту со списком заметок
         ListNotesFragment listNotesFragment = (ListNotesFragment) getSupportFragmentManager().findFragmentByTag(LIST_NOTES_FRAGMENT_TAG);
         if (listNotesFragment != null) {
-            listNotesFragment.addNoteToList(noteEntity);
+            listNotesFragment.addNoteToList(noteEntity, false);
         }
     }
 }

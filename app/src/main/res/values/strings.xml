@@ -7,11 +7,10 @@
     <string name="hint_text_description_note">Текст заметки</string>
     <string name="button_text_note_creation">Сохранить заметку</string>
     <string name="text_warning">Необходимо заполнить поле с именем заметки!</string>
-
+    <string name="delete_note_item">Удалить</string>
     <string name="about_app">
       Приложение заметки \n
       Санкт-Петербург \n
       2021 год.
     </string>
-
 </resources>

@@ -2,12 +2,19 @@ package net.gan.notes;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -18,9 +25,9 @@ import java.util.ArrayList;
 
 public class ListNotesFragment extends Fragment {
 
-    private Button createNoteButton;
     private RecyclerView recyclerView;
     private final ArrayList<NoteEntity> listNoteEntity = new ArrayList<>();
+    private NotesAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,14 +40,12 @@ public class ListNotesFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        //updateListNotes(listNoteEntity);//Нужно, чтобы при возврате перерисовать заметки
-        NotesAdapter adapter = new NotesAdapter();
+        adapter = new NotesAdapter();
+
         adapter.setOnItemClickListener(item -> {
             ((ListNotesController) requireActivity()).editNote(item);
         });
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        adapter.setData(listNoteEntity);
-        recyclerView.setAdapter(adapter);
+        updateListNote();
     }
 
     @Override
@@ -53,15 +58,23 @@ public class ListNotesFragment extends Fragment {
         }
     }
 
-    public void addNoteToList(NoteEntity noteEntity) {
+    public void addNoteToList(NoteEntity noteEntity, boolean deleteOrAdd) {
         for (NoteEntity note : listNoteEntity) {
             if (noteEntity.id.equals(note.id)) {
                 listNoteEntity.remove(note);
+                updateListNote();
+                break;
             }
         }
-        listNoteEntity.add(noteEntity);
-        // updateListNotes(listNoteEntity);
+        if (!deleteOrAdd) {
+            listNoteEntity.add(noteEntity);
+        }
     }
 
+    private void updateListNote(){
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        adapter.setData(listNoteEntity);
+        recyclerView.setAdapter(adapter);
+    }
 
 }
