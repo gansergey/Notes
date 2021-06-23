@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="create_note">Create</string>
+    <string name="about">About the app</string>
+    <string name="list_notes">Notes</string>
+    <string name="hint_text_name_note">Note Name</string>
+    <string name="hint_text_description_note">Text of the note</string>
+    <string name="button_text_note_creation">Save a note</string>
+    <string name="text_warning">You must fill in the field with the name of the note!</string>
+    <string name="delete_note_item">Delete</string>
+    <string name="about_app">
+      The Notes \n
+      Saint-Petersburg \n
+      2021 year.
+    </string>
+    <string name="alert_title_delete_note">Attention!</string>
+    <string name="alert_message_delete_note">Are you sure? The note will be deleted!</string>
+    <string name="positive_button">Yes</string>
+    <string name="negative_button">No</string>
+</resources>
