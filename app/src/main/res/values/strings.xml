@@ -13,4 +13,8 @@
       Санкт-Петербург \n
       2021 год.
     </string>
+    <string name="alert_title_delete_note">Внимание!</string>
+    <string name="alert_message_delete_note">Вы уверены? Заметка будет удалена!</string>
+    <string name="positive_button">Да</string>
+    <string name="negative_button">Нет</string>
 </resources>

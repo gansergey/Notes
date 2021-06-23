@@ -11,16 +11,36 @@ import java.util.UUID;
 
 //final так как мы не будем изменять сущность а будем копировать из неё данные и создавать новую
 public class NoteEntity implements Parcelable {
-    final String id;
-    final String name;
-    final long dateCreation;
-    final String noteDescription;
+    String id;
+    String name;
+    long dateCreation;
+    String noteDescription;
 
     public NoteEntity(String id, String name, long dateCreation, String noteDescription) {
         this.id = id;
         this.name = name;
         this.dateCreation = dateCreation;
         this.noteDescription = noteDescription;
+    }
+
+    public NoteEntity() {
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getDateCreation() {
+        return dateCreation;
+    }
+
+    public String getNoteDescription() {
+        return noteDescription;
     }
 
     protected NoteEntity(Parcel in) {

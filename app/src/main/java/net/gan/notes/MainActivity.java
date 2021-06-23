@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements ListNotesControll
         setContentView(R.layout.activity_main);
         showNoteListFragment();
         initBottomBar();
+
     }
 
     private void showNoteListFragment() {
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ListNotesControll
     public void deleteNote(NoteEntity noteEntity) {
         ListNotesFragment listNotesFragment = (ListNotesFragment) getSupportFragmentManager().findFragmentByTag(LIST_NOTES_FRAGMENT_TAG);
         if (listNotesFragment != null) {
-            listNotesFragment.addNoteToList(noteEntity, true);
+            listNotesFragment.addOrRemoveNoteToList(noteEntity, true);
         }
     }
 
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements ListNotesControll
         getSupportFragmentManager().popBackStack();//возвращаемся к фрагменту со списком заметок
         ListNotesFragment listNotesFragment = (ListNotesFragment) getSupportFragmentManager().findFragmentByTag(LIST_NOTES_FRAGMENT_TAG);
         if (listNotesFragment != null) {
-            listNotesFragment.addNoteToList(noteEntity, false);
+            listNotesFragment.addOrRemoveNoteToList(noteEntity, false);
         }
     }
 }

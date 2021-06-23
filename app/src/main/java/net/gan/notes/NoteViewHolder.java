@@ -1,5 +1,6 @@
 package net.gan.notes;
 
+import android.app.AlertDialog;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
@@ -47,10 +48,22 @@ public class NoteViewHolder extends RecyclerView.ViewHolder implements PopupMenu
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        ((ListNotesController) itemView.getContext()).deleteNote(noteEntity);
+        showAlertDialog();
         return true;
     }
 
+    private void showAlertDialog() {
+        new AlertDialog.Builder(itemView.getContext())
+                .setTitle(R.string.alert_title_delete_note)
+                .setMessage(R.string.alert_message_delete_note)
+                .setCancelable(false)
+                .setPositiveButton(R.string.positive_button, (d, i) -> {
+                    ((ListNotesController) itemView.getContext()).deleteNote(noteEntity);
+                })
+                .setNegativeButton(R.string.negative_button, (d, i) -> {
+                })
+                .setIcon(R.drawable.ic_baseline_delete_forever_24)
+                .show();
+    }
 
 }
-
